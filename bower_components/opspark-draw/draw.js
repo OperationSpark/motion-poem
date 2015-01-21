@@ -5,10 +5,7 @@
  * 
  * For CreateJS Graphic API not wrapped by this version, use the Graphic API directly.
  * See: http://www.createjs.com/Docs/EaselJS/classes/Graphics.html
- * 
- * Version: 1.2
- * 
- * Dependencies: easeljs-0.8.0
+ *
  */
 (function (window) {
     const TYPE_RECTANGULAR  = 'retangular';
@@ -20,6 +17,15 @@
     window.opspark = window.opspark || {};
     
     function sortNumbersAscending(a, b) { return a - b; }
+    
+    function randomColor(r, g, b, a) {
+        if (a) { return 'rgba(' + randomRGBRange(r) + ','  + randomRGBRange(g) + ',' + randomRGBRange(b) + ',' + a + ')'; }
+        return '#' + randomRGBRange(r) + randomRGBRange(g) + randomRGBRange(b);
+    }
+
+    function randomRGBRange(maxRange) {
+        return Math.floor(Math.random() * (maxRange + 1)).toString(16); 
+    }
     
     function getStartPointX(object) {
         switch (object.type) {
@@ -127,15 +133,15 @@
             return shape;
         },
         
-        line: function (x, y, strokeColor, strokeStyle, xOffset, yOffset, onShape) {
-            var dimensions = buildDimensions(TYPE_LINEAR, x, y, xOffset, yOffset);
+        line: function (fromX, fromY, toX, toY, strokeColor, strokeStyle, onShape) {
+            var dimensions = buildDimensions(TYPE_LINEAR, toX, toY, fromX, fromX);
             
             var shape = (onShape) ? onShape : new createjs.Shape();
             shape.graphics
                 .setStrokeStyle(strokeStyle)
                 .beginStroke(strokeColor)
                 .moveTo(dimensions.xOffset, dimensions.yOffset)
-                .lineTo(x, y);
+                .lineTo(toX, toY);
                 
             return draw.setDimensionsOn(shape, dimensions);
         },
@@ -247,9 +253,14 @@
         	return shape;
     	},
     	
-        getStartPointX: getStartPointX
+    	randomColor: randomColor,
+    	randomRGBRange: randomRGBRange,
+    	
+        getStartPointX: getStartPointX,
+        getStartPointY: getStartPointY,
+        getEndPointX: getEndPointX,
+        getEndPointY: getEndPointY
     };
-    
     
 	window.opspark.draw = draw;
 

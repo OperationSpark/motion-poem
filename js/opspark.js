@@ -4,21 +4,12 @@
     var draw = window.opspark.draw;
 
     window.opspark.makeApp = function () {
-        var _state;
+        var motionPoem;
 
         var _app = {
             onTick: function(e) {
-                _state.update();
+                motionPoem.update();
                 stage.update();
-            },
-
-            setState: function(state) {
-                if (_state) {
-                    _state.exit();
-                }
-                state.enter();
-                _state = state;
-                return _app;
             }
         }
 
@@ -26,7 +17,8 @@
         stage = new createjs.Stage(canvas);
 
         stage.addChild(draw.rect(canvas.width, canvas.height, null, '#4F5661', 1));
-        _app.setState(opspark.makeMain());
+        motionPoem = opspark.makeMotionPoem();
+        motionPoem.init();
 
         createjs.Ticker.setFPS(60);
         createjs.Ticker.on('tick', _app.onTick, _app);
