@@ -4,22 +4,24 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Operation Spark || Operation Spark App</title>
-		<meta name="description" content="Operation Spark App">
+		<title>Operation Spark || Motion Poem</title>
+		<meta name="description" content="Operation Spark Motion Poem">
 		<meta name="author" content="operationspark.org">
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 	    <link href="css/style.css" rel="stylesheet">
 
-		<!-- all core CreateJS libraries are listed here: -->
-		<script src="js/lib/easeljs-0.7.1.min.js"></script>
-	    <script src="js/lib/soundjs-0.5.2.min.js"></script>
-	    <script src="js/lib/preloadjs-0.4.1.min.js"></script>
+		<!-- all core CreateJS and 3rd party libraries are listed here: -->
+		<script src="bower_components/lodash/dist/lodash.min.js"></script>
+		<script src="bower_components/easeljs/lib/easeljs-0.8.0.min.js"></script>
+		<script src="bower_components/preloadjs/lib/preloadjs-0.6.0.min.js"></script>
+		<script src="bower_components/soundjs/lib/soundjs-0.6.0.min.js"></script>
+		<script src="bower_components/opspark-draw/draw.js"></script>
 
 	    <!-- our app javascript code -->
-	    <script src="js/view.js"></script>
-	    <script src="js/index.js"></script>
+	    <script src="js/motion-poem.js"></script>
+	    <script src="js/opspark.js"></script>
 
 		<script type="text/javascript">
 			window.onload = function(){
@@ -31,14 +33,17 @@
 				var stage;
 			    var canvas;
 
+			    // canvas = document.getElementById('canvas');
+       //  		stage = new createjs.Stage(canvas);
+
 			    /*
 			     * Variables created within this closure will be protected 
 			     * from any global scope and other libraries we may use, 
 			     * therefore preventing any clashing of namespaces.
 			     */
 			    (function(window, document){
-					window.index = window.index || {};
-			        index.app = new index.App();
+					window.opspark = window.opspark || {};
+			        opspark.app = opspark.makeApp();
 			        console.log('app initialized!')
 				})(window, document);
 			}
@@ -46,7 +51,7 @@
 	</head>
 
 	<body>
-		<div style="text-align: center">
+		<div>
 				<!-- canvas element that serves as the stage for our app or game -->
 				<canvas id="canvas" width="500" height="500"></canvas>
 			
