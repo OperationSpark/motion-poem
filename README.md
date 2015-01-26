@@ -7,6 +7,8 @@ To implement a motion poem, open up the file `index.html` and write your code in
 
 We're using the CreateJS Framework to provide an API for a Flash-like display-list (nested display objects, similarly implemented in Flash) and animation.
 
+***
+
 Within the `<script id="motion-poem">` in the `index.html` file, you'll find we've set you up with:
 
 #### Some Useful Variables:
@@ -22,6 +24,9 @@ Within the `<script id="motion-poem">` in the `index.html` file, you'll find we'
 #### The Update Method
 3. Finally, where the magic happens, the `update()` function:  This function is called 60 times per second by the CreateJS framework's Tick object.  The repetitious calling of this function is essentially a pattern used in animation and games - ths method is called repetiously on a _framerate_ of 60 times per second, which means we can perform some calculations, making small, incremental changes to view-elements to simulate animation.
 
+***
+
+#### Only The Required Code
 
 You'll see at the top of the `<script id="motion-poem">` tag, that we're importing our draw utility and declaring and initializing some our animation engine, so this code is required and MUST stay in place.
 
@@ -59,6 +64,10 @@ Next, you have a space for declaring and initializing your variables.  Finally, 
 })();
 </script>
 ````
+
+***
+
+#### The Default Example Code
 
 See below the default motion poem example:  This code comes as an example in the `<script id="motion-poem">` tag of the `index.html` file.  When you run the app or open the `index.html` file in chrome, the default motion-poem code will execute, and you'll see a little circle moving across the canvas.
 
