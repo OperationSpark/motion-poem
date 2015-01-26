@@ -1,6 +1,6 @@
 {
   "name": "opspark-draw",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "homepage": "https://github.com/OperationSpark/draw",
   "authors": [
     "John Fraboni <john@operationspark.org>"
@@ -26,14 +26,14 @@
     "test",
     "tests"
   ],
-  "_release": "0.2.0",
+  "_release": "0.2.1",
   "_resolution": {
     "type": "version",
-    "tag": "0.2.0",
-    "commit": "c90d2c1d898a0fa8ed7c22f134636202f04ac286"
+    "tag": "0.2.1",
+    "commit": "320e09da58379e230e2e80e4bc26e66750cafcd1"
   },
   "_source": "git://github.com/OperationSpark/draw.git",
-  "_target": "~0.2.0",
+  "_target": "~0.2.1",
   "_originalSource": "opspark-draw",
   "_direct": true
 }

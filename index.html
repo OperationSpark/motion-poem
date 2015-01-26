@@ -7,8 +7,8 @@
 		<title>Operation Spark || Motion Poem</title>
 		<meta name="description" content="Operation Spark Motion Poem">
 		<meta name="author" content="operationspark.org">
-		
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    
 	    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 	    <link href="css/style.css" rel="stylesheet">
 
@@ -20,39 +20,60 @@
 		<script src="bower_components/opspark-draw/draw.js"></script>
 
 	    <!-- our app javascript code -->
-	    <script src="js/motion-poem.js"></script>
 	    <script src="js/opspark.js"></script>
-
-		<script type="text/javascript">
-			window.onload = function(){
-				/*
-				 * By declaring the stage and canvas variables here, we 
-				 * make them available to scopes initialized within this 
-				 * closure.
-				 */ 
-				var stage;
-			    var canvas;
-
-			    /*
-			     * Variables created within this closure will be protected 
-			     * from any global scope and other libraries we may use, 
-			     * therefore preventing any clashing of namespaces.
-			     */
-			    (function(window, document){
-					window.opspark = window.opspark || {};
-			        opspark.app = opspark.makeApp();
-			        console.log('app initialized!')
-				})(window, document);
-			}
-		</script>
 	</head>
-
 	<body>
 		<div>
-				<!-- canvas element that serves as the stage for our app or game -->
-				<canvas id="canvas" width="500" height="500"></canvas>
-			
+			<!-- canvas element that serves as the stage for our app or game -->
+			<canvas id="canvas" width="500" height="500"></canvas>
 		</div>
-		
+		<script id="motion-poem">
+			(function(){
+				window.opspark = window.opspark || {};
+				
+				var 
+					draw = window.opspark.draw,
+					app = opspark.makeApp(update),
+					canvas = app.canvas, 
+					view = app.view;
+
+				
+				////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		        // TODO : REPLACE ALL EXAMPLE CODE YOUR OWN MOTION POEM ASSETS                                                    //
+		        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+		        /* 1. *************************************************************************************************************
+		         *
+		         * DECLARE VARIABLES HERE
+		         * (EXAMPLE: Declaring a variable called shape)
+		         *
+		         */
+		        var shape;
+
+
+		        /* 2. *************************************************************************************************************
+                 * 
+                 * INITIALIZE VARIABLES HERE
+                 * (EXAMPLE: Drawing a grey circle with a radius of 10 and adding it to the center of the wahtview)
+                 *
+                 */
+                shape = draw.circle(10, '#CCC');
+                shape.x = shape.y = (canvas.width - shape.width) / 2;
+                view.addChild(shape);
+
+                function update() {						
+					/* 3. *********************************************************************************************************
+	                 *
+	                 * UPDATE ANY VARIABLES HERE > NOTE: The update() method is called 60 times per second.
+	                 * (EXAMPLE: Move the shape on its x-axis 1 pixel to the right per frame, then check its position against the stage boundaries)
+	                 *
+	                 */
+	                shape.x += 1;
+	                if (shape.x > canvas.width + shape.radius) { shape.x = -(shape.radius); }
+                }
+			})();
+		</script>
 	</body>
+
 </html>

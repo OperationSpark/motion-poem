@@ -134,7 +134,7 @@
         },
         
         line: function (fromX, fromY, toX, toY, strokeColor, strokeStyle, onShape) {
-            var dimensions = buildDimensions(TYPE_LINEAR, toX, toY, fromX, fromX);
+            var dimensions = buildDimensions(TYPE_LINEAR, toX, toY, fromX, fromY);
             
             var shape = (onShape) ? onShape : new createjs.Shape();
             shape.graphics

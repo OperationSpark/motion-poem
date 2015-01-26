@@ -9,6 +9,5 @@
   },
   "_source": "git://github.com/sole/tween.js.git",
   "_target": "*",
-  "_originalSource": "tweenjs",
-  "_direct": true
+  "_originalSource": "tweenjs"
 }

@@ -38,6 +38,5 @@
   },
   "_source": "git://github.com/CreateJS/SoundJS.git",
   "_target": "~0.6.0",
-  "_originalSource": "SoundJS",
-  "_direct": true
+  "_originalSource": "SoundJS"
 }

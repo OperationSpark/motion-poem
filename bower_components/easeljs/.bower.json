@@ -44,6 +44,5 @@
   },
   "_source": "git://github.com/CreateJS/EaselJS.git",
   "_target": "~0.8.0",
-  "_originalSource": "easeljs",
-  "_direct": true
+  "_originalSource": "easeljs"
 }
