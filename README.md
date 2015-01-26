@@ -5,7 +5,7 @@ This repository should be cloned or forked to start your own Motion Poem project
 
 To implement a motion poem, open up the file `index.html` and write your code in the `<script id="motion-poem">` tag, located at the bottom of the page, within the `<body>` tag.
 
-We're using the CreateJS Framework to provide an API for a Flash-like display-list (nested display objects, similarily implemented in Flash) and animation.
+We're using the CreateJS Framework to provide an API for a Flash-like display-list (nested display objects, similarly implemented in Flash) and animation.
 
 Within the `<script id="motion-poem">` in the `index.html` file, you'll find we've set you up with:
 
@@ -106,7 +106,7 @@ Remember tho, you'll need to remove the default code we've added.  Here's the fu
         /* 2. *************************************************************************************************************
          * 
          * INITIALIZE VARIABLES HERE
-         * (EXAMPLE: Drawing a grey circle with a radius of 10 and adding it to the center of the wahtview)
+         * (EXAMPLE: Drawing a grey circle with a radius of 10 and adding it to the center of the view)
          *
          */
         shape = draw.circle(10, '#CCC');
@@ -130,5 +130,4 @@ Remember tho, you'll need to remove the default code we've added.  Here's the fu
 
 Have fun!
 
-NOTE: Normally bower components would not be committed to a repository, but we've done so for ease of configuration.  For advanced users, you can always run `bower install` to re-install dependent JavaScript packages.
-
+NOTE: Normally bower components would not be committed to a repository, but we've done so for ease of configuration.  For advanced users, you can always run `bower install` to reinstall dependent JavaScript packages.
