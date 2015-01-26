@@ -27,6 +27,6 @@
     "tweenjs": "*",
     "PreloadJS": "~0.6.0",
     "SoundJS": "~0.6.0",
-    "opspark-draw": "~0.2.0"
+    "opspark-draw": "~0.2.1"
   }
 }
