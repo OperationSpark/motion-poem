@@ -11,7 +11,7 @@ Within the `<script id="motion-poem">` in the `index.html` file, you'll find we'
 
 #### Some Useful Variables:
 1. a variable called `draw`: this is a drawing utility to help you draw simple shapes.  You use it like:
-        `var myRectangle = draw.rect(100, 100, '#CCC');`
+    `var myRectangle = draw.rect(100, 100, '#CCC');`
 2. a `view` property: you will add your display objects, shapes and images, to this view object using its API `view.addChild(myRectangle);`.  This will make your shapes visible.
 3. a variable called `canvas`: this represents the full width and height of our drawing space.  Our `view` is a child of the `canvas`, and you can position your display objects, shapes and images, within the width and height of the canvas by referencing its height and with properties, like: `myRectangle.x = (canvas.width - myRectangle.width) / 2`
 
