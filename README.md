@@ -1,6 +1,8 @@
 Motion Poem
 ===
 
+Also at: http://bit.ly/motion-poem
+
 This repository should be cloned or forked to start your own Motion Poem project.
 
 To implement a motion poem, open up the file `index.html` and write your code in the `<script id="motion-poem">` tag, located at the bottom of the page, within the `<body>` tag.
@@ -32,7 +34,6 @@ You'll see at the top of the `<script id="motion-poem">` tag, that we're importi
 
 Next, you have a space for declaring and initializing your variables.  Finally, you have the `update()` function, and inside the code block of the `update()` function, you update your variables.  The full template looks like this:
 
-Also at: http://bit.ly/motion-poem
 
 ````javascript
 <script id="motion-poem">
