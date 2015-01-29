@@ -51,23 +51,23 @@ Next, you have a space for declaring and initializing your variables.  Finally, 
 
 
         /* 1. *************************************************************************************************************
-             *
-             * DECLARE VARIABLES HERE
-             */
+         *
+         * DECLARE VARIABLES HERE
+         */
 
 
-            /* 2. *************************************************************************************************************
-             * 
-             * INITIALIZE VARIABLES HERE
-             */
+        /* 2. *************************************************************************************************************
+         * 
+         * INITIALIZE VARIABLES HERE
+         */
     
-            function update() {                     
-                /* 3. *********************************************************************************************************
-                 *
-                 * UPDATE ANY VARIABLES HERE > NOTE: The update() method is called 60 times per second.
-                 */
+        function update() {                     
+	        /* 3. *********************************************************************************************************
+	         *
+	         * UPDATE ANY VARIABLES HERE > NOTE: The update() method is called 60 times per second.
+	         */
                 
-            }
+        }
     })();
 </script>
 ````
