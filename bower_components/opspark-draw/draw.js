@@ -17,6 +17,22 @@
     window.opspark = window.opspark || {};
     
     function sortNumbersAscending(a, b) { return a - b; }
+    function sortNumbersDescending(a, b) { return b - a; }
+    
+    function randomIntBetween(min, max) { 
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+    
+    function blurFilterOn(displayObject, blurX, blurY, quality) {
+        blurX = (blurX) ? blurX : 5;
+        blurY = (blurY) ? blurY : 5;
+        quality = (quality) ? quality : 1;
+        
+        var blurFilter = new createjs.BlurFilter(blurX, blurY, quality);
+        displayObject.filters = (displayObject.filters) ? displayObject.filters.concat(blurFilter) : [blurFilter];
+        displayObject.cache(-displayObject.radius, -displayObject.radius, displayObject.width, displayObject.height);
+        return displayObject;
+    }
     
     function randomColor(r, g, b, a) {
         if (a) { return 'rgba(' + randomRGBRange(r) + ','  + randomRGBRange(g) + ',' + randomRGBRange(b) + ',' + a + ')'; }
@@ -253,13 +269,64 @@
         	return shape;
     	},
     	
+    	
+    	randomCircleInArea: function (area, randomizeAlpha, addCross, borderColor, borderThickness, randomRadialProps) {
+    	    var props, circle;
+    	    
+    	    props = (randomRadialProps) ? randomRadialProps : draw.randomRadialProps(area);
+			
+			if (addCross) {
+			    // always make sure the cross is visible - it won't be if randomizeAlpha is false //
+			    randomizeAlpha = true;
+    			circle = draw.line(-(props.radius), 0, props.radius, 0, borderColor  || '#000', 2);
+    		    draw.line(0, -(props.radius), 0, props.radius, borderColor || '#000', 2, circle);
+			}
+			
+			if (borderColor && !borderThickness) { borderThickness = 1; }
+			
+			// first draw the circle's border - don't use stroke //
+			circle = draw.circle(props.radius+borderThickness, borderColor, null, null, null, null, circle);
+			draw.circle(props.radius, props.color, null, null, null, null, circle);
+			circle.x = props.x;
+			circle.y = props.y;
+			
+		    
+			
+			if (randomizeAlpha) {circle.alpha = Math.random(); }
+			
+			return circle;
+    	},
+    	
+    	randomRadialProps: function (area, radiusMin, radiusMax, redMax, greenMax, blueMax) {
+    	    return {
+    	        radius: randomIntBetween(radiusMin || 5, radiusMax || 20),
+    	        color: randomColor(redMax || 255, greenMax || 255, blueMax || 255),
+    	        x: randomIntBetween(0, area.width),
+    	        y: randomIntBetween(0, area.height)
+    	    };
+    	},
+    	
     	randomColor: randomColor,
     	randomRGBRange: randomRGBRange,
     	
         getStartPointX: getStartPointX,
         getStartPointY: getStartPointY,
         getEndPointX: getEndPointX,
-        getEndPointY: getEndPointY
+        getEndPointY: getEndPointY,
+        
+        blurFilterOn: blurFilterOn,
+        
+        fps: function (color) {
+            color = (color) ? color : '#FFF';
+            var _textfield = new createjs.Text("-- fps", "bold 15px Arial", color);
+            var _fps = new createjs.Container();
+            _fps.textfield = _textfield;
+            _fps.addChild(_textfield);
+            _fps.update = function (parent) {
+                _textfield.text = Math.round(createjs.Ticker.getMeasuredFPS()) + " fps";
+            };
+            return _fps;
+        }
     };
     
 	window.opspark.draw = draw;

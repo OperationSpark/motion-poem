@@ -13,11 +13,12 @@
 	    <link href="css/style.css" rel="stylesheet">
 
 		<!-- all core CreateJS and 3rd party libraries are listed here: -->
-		<script src="bower_components/lodash/dist/lodash.min.js"></script>
+		<script src="bower_components/lodash/lodash.min.js"></script>
 		<script src="bower_components/easeljs/lib/easeljs-0.8.0.min.js"></script>
-		<script src="bower_components/preloadjs/lib/preloadjs-0.6.0.min.js"></script>
-		<script src="bower_components/soundjs/lib/soundjs-0.6.0.min.js"></script>
+		<script src="bower_components/PreloadJS/lib/preloadjs-0.6.0.min.js"></script>
+		<script src="bower_components/SoundJS/lib/soundjs-0.6.0.min.js"></script>
 		<script src="bower_components/opspark-draw/draw.js"></script>
+        <script src="bower_components/racket/racket.js"></script>
 
 	    <!-- our app javascript code -->
 	    <script src="js/opspark.js"></script>
@@ -29,13 +30,16 @@
 		</div>
 		<script id="motion-poem">
 			(function(){
-				window.opspark = window.opspark || {};
-				
-				var 
-					draw = window.opspark.draw,
-					app = opspark.makeApp(update),
-					canvas = app.canvas, 
-					view = app.view;
+				'use strict';
+                
+                var 
+                    draw = window.opspark.draw,
+                    physikz = window.opspark.racket.physikz,
+                    
+                    app = window.opspark.makeApp({update: update}),
+                    canvas = app.canvas, 
+                    view = app.view,
+                    fps = draw.fps('#000');
 
 				
 				////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
