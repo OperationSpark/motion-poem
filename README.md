@@ -38,13 +38,17 @@ Next, you have a space for declaring and initializing your variables.  Finally, 
 ````javascript
 <script id="motion-poem">
 	(function(){
-		window.opspark = window.opspark || {};
+		'use strict';
 		
 		var 
-			draw = window.opspark.draw,
-			app = opspark.makeApp(update),
-			canvas = app.canvas, 
-			view = app.view;
+            draw = window.opspark.draw,
+            physikz = window.opspark.racket.physikz,
+            
+            app = window.opspark.makeApp({update: update}),
+            canvas = app.canvas, 
+            view = app.view,
+            fps = draw.fps('#000');
+
 
 		/* 1. *************************************************************************************************************
 	         *
@@ -90,18 +94,19 @@ Remember tho, you'll need to remove the default code we've added.  Here's the fu
 
 ````javascript
 <script id="motion-poem">
-	(function(){
-		window.opspark = window.opspark || {};
-		
-		var 
-			draw = window.opspark.draw,
-			app = opspark.makeApp(update),
-			canvas = app.canvas, 
-			view = app.view;
-		
-
-
-		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    (function(){
+        'use strict';
+        
+        var 
+            draw = window.opspark.draw,
+            physikz = window.opspark.racket.physikz,
+            
+            app = window.opspark.makeApp({update: update}),
+            canvas = app.canvas, 
+            view = app.view,
+            fps = draw.fps('#000');
+        
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // TODO : REPLACE ALL EXAMPLE CODE YOUR OWN MOTION POEM ASSETS                                                    //
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -125,9 +130,8 @@ Remember tho, you'll need to remove the default code we've added.  Here's the fu
         shape.x = shape.y = (canvas.width - shape.width) / 2;
         view.addChild(shape);
 
-
-        function update() {						
-			/* 3. *********************************************************************************************************
+        function update() {                     
+            /* 3. *********************************************************************************************************
              *
              * UPDATE ANY VARIABLES HERE > NOTE: The update() method is called 60 times per second.
              * (EXAMPLE: Move the shape on its x-axis 1 pixel to the right per frame, then check its position against the stage boundaries)
@@ -136,7 +140,7 @@ Remember tho, you'll need to remove the default code we've added.  Here's the fu
             shape.x += 1;
             if (shape.x > canvas.width + shape.radius) { shape.x = -(shape.radius); }
         }
-	})();
+    })();
 </script>
 ````
 
